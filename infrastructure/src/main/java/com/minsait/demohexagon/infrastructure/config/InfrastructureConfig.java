@@ -1,20 +1,19 @@
 package com.minsait.demohexagon.infrastructure.config;
 
-import com.minsait.demohexagon.application.services.ProductService;
-import com.minsait.demohexagon.application.services.impl.ProductServiceImpl;
-import com.minsait.demohexagon.domain.port.outbound.ProductOutboundPort;
-import com.minsait.demohexagon.infrastructure.adapters.outbound.H2ProductAdapter;
-import com.minsait.demohexagon.infrastructure.adapters.outbound.persistence.repository.H2ProductRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import com.minsait.demohexagon.application.services.PriceService;
+import com.minsait.demohexagon.application.services.impl.PriceServiceImpl;
+import com.minsait.demohexagon.domain.port.outbound.PriceOutboundPort;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class InfrastructureConfig {
-
     @Bean
-    ProductService ProductService(ProductOutboundPort productOutboundPort){
-        return new ProductServiceImpl(productOutboundPort);
+    PriceService productService(PriceOutboundPort priceOutboundPort){
+        return new PriceServiceImpl(priceOutboundPort);
     }
+
+//    @Bean
+//    PriceOutboundPort h2PriceAdapter()
 
 }
