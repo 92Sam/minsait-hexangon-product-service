@@ -1,2 +1,15 @@
 server:
-  port: ${PORT:9001}
+  port: ${PORT:8082}
+
+# H2 Database
+spring:
+  h2:
+    console:
+      enabled: true
+  datasource:
+    driverClassName: org.h2.Driver
+    username: ${DB_USERNAME:root}
+    password: ${DB_PASSWORD:password}
+    url: jdbc:h2:mem:dcbapp
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
